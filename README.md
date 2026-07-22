@@ -1,11 +1,11 @@
 # 🌍 SkyBlock Translator (Fabric Mod)
 
-[![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21.11-blue.svg?logo=minecraft&color=62B036)](https://www.minecraft.net/)
+[![Minecraft Version](https://img.shields.io/badge/Minecraft-1.21.11%20%7C%2026.1.2%20%7C%2026.2-blue.svg?logo=minecraft&color=62B036)](https://www.minecraft.net/)
 [![Loader](https://img.shields.io/badge/Loader-Fabric-lightgrey.svg?logo=fabric&color=E2DBCE)](https://fabricmc.net/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Modrinth](https://img.shields.io/badge/Modrinth-Available-green.svg?logo=modrinth)](https://modrinth.com)
 
-**SkyBlock Translator** is a high-performance, client-side translation mod for Minecraft 1.21.11, designed specifically for **Hypixel SkyBlock**. The mod translates in-game chat, inventory item tooltips (lore), chest titles, holograms, player tab lists, and entities from English to your target language (default is Russian, with offline support for 30+ other target languages) in real-time.
+**SkyBlock Translator** is a high-performance, client-side translation mod for Minecraft 1.21.11, 26.1.2, and 26.2, designed specifically for **Hypixel SkyBlock**. The mod translates in-game chat, inventory item tooltips (lore), chest titles, holograms, player tab lists, and entities from English to your target language (default is Russian, with offline support for 30+ other target languages) in real-time.
 
 Unlike generic translation mods, **SkyBlock Translator** is custom-built to parse the unique layout structures of Hypixel SkyBlock, optimizing performance, saving API limits, preserving interactive elements, and avoiding server bans.
 
@@ -207,6 +207,33 @@ If you spot incorrect translations or missing terms:
 
 ### Q: Does keeping "Item Names" enabled break searches?
 **A**: Yes. Skyblock menus query items using English terms. We recommend keeping **Item Names** disabled in settings. This keeps item names in English while translating their lore and abilities.
+
+---
+
+## 🧩 Building from Source (Multi-Version)
+
+This project uses [Stonecutter](https://stonecutter.kikugie.dev/) to build a single shared codebase against several Minecraft versions (1.21.11, 26.1.2, 26.2) with Fabric Loom. There is no per-version copy of the source — `src/main/` is shared, and version-specific code (when needed) lives inline behind Stonecutter `//? if` comments.
+
+```bash
+# Build every targeted version in one go
+./gradlew ":1.21.11:build" ":26.1.2:build" ":26.2:build"
+
+# Or build/run just one version
+./gradlew ":26.1.2:build"
+```
+
+```bash
+# Switch which version is active for editing/running in the IDE, then re-sync Gradle
+./gradlew stonecutterSwitchTo26.1.2
+```
+
+Key files:
+- `settings.gradle.kts` — declares which Minecraft versions are built (`stonecutter { create(rootProject) { versions(...) } }`).
+- `stonecutter.properties.toml` — per-version dependency coordinates (Fabric API, ModMenu, YACL) and the shared mod id/version/group.
+- `build.gradle.kts` (root) — the single Loom buildscript applied to every version subproject; `dev.kikugie.loom-back-compat` bridges the obfuscated-mappings API (<26.1) and the unobfuscated API (26.1+) so this one script works everywhere.
+- `stonecutter.gradle.kts` — marks which version is currently active for editing/running.
+
+To add a future Minecraft version: add it to `versions(...)` in `settings.gradle.kts`, add a matching `["x.y.z"]` section to `stonecutter.properties.toml` with that version's dependency coordinates, then resolve any compile errors Stonecutter reports for that version with a `//? if` block in the shared source.
 
 ---
 

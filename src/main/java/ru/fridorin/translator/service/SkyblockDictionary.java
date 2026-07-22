@@ -653,10 +653,16 @@ public class SkyblockDictionary {
                             if (clientInstance != null) {
                                 clientInstance.execute(() -> {
                                     if (clientInstance.player != null) {
+                                        //? if <26.1 {
                                         clientInstance.player.displayClientMessage(
                                             net.minecraft.network.chat.Component.literal("§a[SkyBlock Translator] Dictionary updated from GitHub! Loaded " + downloaded.size() + " entries."),
                                             false
                                         );
+                                        //?} else {
+                                        /*clientInstance.player.sendSystemMessage(
+                                            net.minecraft.network.chat.Component.literal("§a[SkyBlock Translator] Dictionary updated from GitHub! Loaded " + downloaded.size() + " entries.")
+                                        );
+                                        *///?}
                                     }
                                 });
                             }

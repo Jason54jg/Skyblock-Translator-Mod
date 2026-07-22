@@ -1,8 +1,7 @@
 {
 	"required": true,
 	"package": "ru.fridorin.translator.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"refmap": "skyblock_translator.refmap.json",
+	"compatibilityLevel": "${java}",
 	"client": [
 		"GuiMixin",
 		"ScreenMixin",

@@ -4,7 +4,10 @@ import ru.fridorin.translator.config.TranslatorConfig;
 import ru.fridorin.translator.config.TranslatorConfigManager;
 import ru.fridorin.translator.service.TranslationService;
 import ru.fridorin.translator.TranslatorModClient;
+//? if <26.2 {
 import net.minecraft.client.gui.Gui;
+//?} else
+/*import net.minecraft.client.gui.Hud;*/
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,7 +15,10 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+//? if <26.2 {
 @Mixin(Gui.class)
+//?} else
+/*@Mixin(Hud.class)*/
 public class GuiMixin {
     private static class CacheEntry {
         final String originalText;

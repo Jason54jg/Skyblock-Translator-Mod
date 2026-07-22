@@ -112,11 +112,19 @@ public class TranslationService {
             warnedAboutMissingKey = true;
             net.minecraft.client.Minecraft client = net.minecraft.client.Minecraft.getInstance();
             client.execute(() -> {
+                //? if <26.1 {
                 if (client.gui != null) {
                     client.gui.getChat().addMessage(net.minecraft.network.chat.Component.literal(
                         "§c[SkyBlock Translator] API key for " + provider + " is missing! Falling back to Google Translator."
                     ));
                 }
+                //?} else {
+                /*if (client.player != null) {
+                    client.player.sendSystemMessage(net.minecraft.network.chat.Component.literal(
+                        "§c[SkyBlock Translator] API key for " + provider + " is missing! Falling back to Google Translator."
+                    ));
+                }
+                *///?}
             });
         }
     }

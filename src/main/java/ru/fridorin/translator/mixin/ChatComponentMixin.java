@@ -19,7 +19,10 @@ public abstract class ChatComponentMixin implements ChatUpdateExtension {
         for (int i = 0; i < allMessages.size(); i++) {
             GuiMessage msg = allMessages.get(i);
             if (msg.content() == original || msg.content().getString().equals(original.getString())) {
+                //? if <26.1 {
                 allMessages.set(i, new GuiMessage(msg.addedTime(), translation, msg.signature(), msg.tag()));
+                //?} else
+                /*allMessages.set(i, new GuiMessage(msg.addedTime(), translation, msg.signature(), msg.source(), msg.tag()));*/
                 refreshTrimmedMessages();
                 break;
             }

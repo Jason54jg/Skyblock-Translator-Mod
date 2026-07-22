@@ -473,7 +473,10 @@ public class TranslatorConfigScreen {
                             TranslationCache.clear();
                             net.minecraft.client.Minecraft client = net.minecraft.client.Minecraft.getInstance();
                             if (client.player != null) {
+                                //? if <26.1 {
                                 client.player.displayClientMessage(Component.literal("§a[SkyBlock Translator] Translation cache cleared successfully! / Кэш переводов успешно очищен!"), false);
+                                //?} else
+                                /*client.player.sendSystemMessage(Component.literal("§a[SkyBlock Translator] Translation cache cleared successfully! / Кэш переводов успешно очищен!"));*/
                             }
                             try {
                                 client.getSoundManager().play(net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(net.minecraft.sounds.SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0F));
