@@ -11,9 +11,10 @@ Unlike generic translation mods, **SkyBlock Translator** is custom-built to pars
 
 ---
 
-### 🌐 Language / Язык
+### 🌐 Language / Язык / Langue
 *   **English** (Current)
 *   **[Русский (Russian)](README_ru.md)**
+*   **[Français (French)](README_fr.md)**
 
 ---
 
