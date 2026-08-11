@@ -11,9 +11,10 @@
 
 ---
 
-### 🌐 Language / Язык
+### 🌐 Language / Язык / Langue
 *   **[English (Английский)](README.md)**
 *   **Русский** (Текущий)
+*   **[Français (Французский)](README_fr.md)**
 
 ---
 

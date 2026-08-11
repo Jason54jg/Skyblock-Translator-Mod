@@ -1,6 +1,6 @@
 # 🌍 SkyBlock Translator (Fabric Mod)
 
-**SkyBlock Translator** is a high-performance client-side translation mod for Minecraft 1.21.11, designed specifically for **Hypixel SkyBlock** players. It translates in-game chat, item tooltips (lore), chest titles, holograms, player tab lists, and entities from English to your target language (default is Russian, with support for over 30+ other target languages) in real-time.
+**SkyBlock Translator** is a high-performance client-side translation mod for Minecraft 1.21.11, 26.1.2, and 26.2, designed specifically for **Hypixel SkyBlock** players. It translates in-game chat, item tooltips (lore), chest titles, holograms, player tab lists, and entities from English to your target language (default is Russian, with support for over 30+ other target languages) in real-time.
 
 ---
 

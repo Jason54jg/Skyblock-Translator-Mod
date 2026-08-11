@@ -32,6 +32,12 @@ bin/
 
 run/
 
+# stonecutter
+
+versions/*/.gradle/
+versions/*/build/
+.stonecutter-cache/
+
 # java
 
 hs_err_*.log

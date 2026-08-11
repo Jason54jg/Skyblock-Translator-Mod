@@ -17,14 +17,22 @@ public class KeyBindCaptureScreen extends Screen {
     }
 
     @Override
+    //? if <26.1 {
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
         this.renderBackground(graphics, mouseX, mouseY, delta);
-        
+    //?} else {
+    /*public void extractRenderState(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
+        this.extractBackground(graphics, mouseX, mouseY, delta);
+    *///?}
+
         String mappingName = Component.translatable(keyMapping.getName()).getString();
         graphics.drawCenteredString(this.font, "Press any key to bind to: " + mappingName, this.width / 2, this.height / 2 - 20, 0xFFFFFF);
         graphics.drawCenteredString(this.font, "Press ESC to cancel", this.width / 2, this.height / 2 + 10, 0xAAAAAA);
-        
+
+        //? if <26.1 {
         super.render(graphics, mouseX, mouseY, delta);
+        //?} else
+        /*super.extractRenderState(graphics, mouseX, mouseY, delta);*/
     }
 
     @Override

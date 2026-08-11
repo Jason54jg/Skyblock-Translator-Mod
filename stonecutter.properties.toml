@@ -1,0 +1,33 @@
+# Centralized properties shared across every version.
+# See https://stonecutter.kikugie.dev/wiki/config/properties#centralized-properties
+mod.id = "skyblock_translator"
+mod.name = "Skyblock Translator"
+mod.group = "ru.fridorin"
+mod.version = "1.0.0"
+
+deps.fabric_loader = "0.19.3"
+loomx.loom_version = "1.17-SNAPSHOT"
+
+["1.21.11"]
+mod.mc_compat = "~1.21.11"
+mod.mc_releases = ["1.21.11"]
+
+deps.fabric_api = "0.141.5+1.21.11"
+deps.modmenu = "17.0.0"
+deps.yacl = "3.8.1+1.21.11-fabric"
+
+["26.1.2"]
+mod.mc_compat = "~26.1"
+mod.mc_releases = ["26.1.2"]
+
+deps.fabric_api = "0.155.2+26.1.2"
+deps.modmenu = "18.0.0"
+deps.yacl = "3.9.6+26.1-fabric"
+
+["26.2"]
+mod.mc_compat = "~26.2"
+mod.mc_releases = ["26.2"]
+
+deps.fabric_api = "0.155.2+26.2"
+deps.modmenu = "20.0.1"
+deps.yacl = "3.9.6+26.2-fabric"

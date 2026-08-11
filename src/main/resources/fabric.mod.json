@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "skyblock_translator",
+	"id": "${id}",
 	"version": "${version}",
-	"name": "Skyblock Translator",
+	"name": "${name}",
 	"description": "Client-side chat, NPC dialogue, scoreboard, and item tooltip translator for Hypixel SkyBlock.",
 	"authors": [
 		"fridorin"
@@ -28,9 +28,9 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.19.2",
-		"minecraft": "~1.21.11",
-		"java": ">=21",
+		"minecraft": "${minecraft}",
+		"java": ">=${java}",
 		"fabric-api": "*",
-		"yet_another_config_lib_v3": ">=3.8.2"
+		"yet_another_config_lib_v3": ">=3.8.1"
 	}
 }

@@ -110,7 +110,10 @@ public class TranslatorModClient implements ClientModInitializer {
                 config.enabled = !config.enabled;
                 TranslatorConfigManager.save();
                 if (client.player != null) {
+                    //? if <26.1 {
                     client.player.displayClientMessage(Component.literal("§a[SkyBlock Translator] " + (config.enabled ? "Enabled" : "Disabled")), true);
+                    //?} else
+                    /*client.gui.setOverlayMessage(Component.literal("§a[SkyBlock Translator] " + (config.enabled ? "Enabled" : "Disabled")), false);*/
                 }
             }
         });
