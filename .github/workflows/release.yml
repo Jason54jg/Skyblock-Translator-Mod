@@ -1,0 +1,58 @@
+name: Build and Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Java 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x gradlew
+
+      - name: Build All Minecraft Versions
+        run: ./gradlew ":1.21.11:build" ":26.1.2:build" ":26.2:build"
+
+      - name: Prepare Release Artifacts
+        run: |
+          mkdir -p release_jars
+          find versions -type f -path "*/build/libs/*.jar" ! -name "*-sources.jar" ! -name "*-dev.jar" -exec cp {} release_jars/ \;
+          echo "Collected release JARS:"
+          ls -la release_jars/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release_jars/*.jar
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
