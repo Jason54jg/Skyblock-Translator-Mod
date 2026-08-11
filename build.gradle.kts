@@ -21,6 +21,8 @@ val requiredJava: JavaVersion = when {
 }
 
 repositories {
+    mavenCentral()
+    maven("https://maven.fabricmc.net/") { name = "Fabric" }
     // Pin each mod's group to the repo that actually publishes it, and prefer Modrinth's maven
     // mirror over Terraformers' own host for ModMenu — maven.terraformersmc.com has had repeated
     // sustained outages (502s), while Modrinth mirrors the same artifact under the "maven.modrinth"
